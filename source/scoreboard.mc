@@ -1,18 +1,19 @@
-var score = [0, 15, 30, 40];
+import Toybox.Lang;
+var score as Array<Number> = [0, 15, 30, 40];
 
 class Score {
     var score;
-    var games;
+    var games as Array<Number> = [0];
 
     function initialize() {
         score = 0;
-        games = [0];
+        games = [0] as Array<Number>;
     }
 }
 class ScoreBoard {
-    var players;
+    var players as Array<Score> = [new Score(), new Score()];
     var tiebreak;
-    var history;
+    var history as Array<Number> = [];
     var replaying_history;
     
     function initialize() {
@@ -20,7 +21,7 @@ class ScoreBoard {
     }
 
     function reset() {
-        players = [new Score(), new Score()];
+        players = [new Score(), new Score()] as Array<Score>;
         tiebreak = false;
         replaying_history = false;
         history = [];
